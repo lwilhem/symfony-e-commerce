@@ -57,7 +57,7 @@ class AppFixtures extends Fixture
             $product = new Product();
             $product->setName('Product #' . $i);
             $product->setDescription('This is a Description for Product #' .$i);
-            $product->setPrice(rand(0, 300));
+            $product->setPrice(rand(3000, 4000));
             $product->setStock(random_int(20, 300));
 
             $manager->persist($product);
