@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -32,14 +31,6 @@ class Product
     #[ORM\ManyToOne(targetEntity: ProductCategory::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: true)]
     private $Category;
-
-    #[ORM\Column(type: 'datetime')]
-    #[Gedmo\Timestampable(on: 'create')]
-    private $createdAt;
-
-    #[ORM\Column(type: 'datetime')]
-    #[Gedmo\Timestampable(on: 'update')]
-    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -114,30 +105,6 @@ class Product
     public function setCategory(?ProductCategory $Category): self
     {
         $this->Category = $Category;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

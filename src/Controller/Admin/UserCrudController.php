@@ -26,15 +26,6 @@ class UserCrudController extends AbstractCrudController
                 'Admin' => 'ROLE_ADMIN',
                 'User' => 'ROLE_USER',
             ]),
-            ImageField::new('picture')
-                ->setUploadDir('public/uploads/user')
-                ->setBasePath('uploads/user')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setFormTypeOptions([
-                    'attr' => [
-                        'accept' => 'image/jpeg, image/png'
-                    ]
-                ])
         ];
     }
 }
