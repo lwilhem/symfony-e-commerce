@@ -17,12 +17,4 @@ class CategoryShopController extends AbstractController
             'products' => $productRepository->findByCategories($category_id),
         ]);
     }
-
-    #[Route('/category/{category_id}/{product_id}', name: 'app_category_shop')]
-    public function show(): Response
-    {
-        return $this->render('product_page/index.html.twig', [
-            'controller_name' => 'ProductPageController',
-        ]);
-    }
 }
