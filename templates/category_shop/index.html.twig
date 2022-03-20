@@ -9,13 +9,11 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <h2>Our Products</h2>
-                        <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
                 {% for product in products %}
                     <div class="col-md-4">
                         <div class="product-item">
-                            <a href="#"><img src="{{ asset('')}}" alt="Twig && image = bof/20" ></a>
                             <div class="down-content">
                                 <a href="{{ path('app_product_page', {id: product.id}) }}"><h4>{{ product.name }}</h4></a>
                                 <h6>c koi symfony?</h6>
@@ -27,7 +25,7 @@
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
-                                <span>price ({{ product.price }})</span>
+                                <span>${{ product.price }}</span>
                             </div>
                         </div>
                     </div>

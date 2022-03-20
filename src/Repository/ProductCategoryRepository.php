@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\ProductCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
@@ -43,6 +44,19 @@ class ProductCategoryRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+    /**
+     * @throws NonUniqueResultException
+     */
+    public function findOneById($value): ?ProductCategory
+    {
+        return $this->createQueryBuilder('product_category')
+            ->andWhere('product_category.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
     // /**
     //  * @return ProductCategory[] Returns an array of ProductCategory objects
