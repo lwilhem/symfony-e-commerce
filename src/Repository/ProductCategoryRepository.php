@@ -44,7 +44,6 @@ class ProductCategoryRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
     // /**
     //  * @return ProductCategory[] Returns an array of ProductCategory objects
     //  */

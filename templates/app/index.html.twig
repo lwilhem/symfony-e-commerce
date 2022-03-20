@@ -3,13 +3,36 @@
 {% block title %}E-Commerce Moyen{% endblock %}
 
 {% block body %}
-    <section class="d-flex flex-wrap align-items-center justify-content-center">
-            {% for category in categories %}
-                <div class="bg-primary w-25 h-25 d-flex align-items-center justify-content-center p-2">
-                    <a href="{{ path('app_category_list', {'category_id' : category.id}) }}" class="text-white text-uppercase text-decoration-none">
-                        {{ category.name }}
-                    </a>
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Latest Products</h2>
+                    <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
                 </div>
+            </div>
+            {% for category in categories %}
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="#"><img src="{{ asset(picture)}}" alt="Twig && image = bof/20" ></a>
+                    <div class="down-content">
+                        <a href="{{ path('app_category_list', {category_id: category.id}) }}"><h4>{{ category.name }}</h4></a>
+                        <h6>c koi symfony?</h6>
+                        <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                        <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>Reviews ({{ category.id }})</span>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-    </section>
+        </div>
+    </div>
+</div>
 {% endblock %}
