@@ -34,10 +34,12 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">Total</td>
-                <td class="text-right">{{ total }}</td>
+                <td colspan="3">Total : ${{ total }}</td>
+                <td class="text-right">
+                    <a href="{{ path('cart_payments') }}" class="btn btn-success"> I want to lose my money !</a>
+                </td>
                 <td>
-                    <a href="{{ path('cart_delete_all') }}"> delete All </a>
+                    <a href="{{ path('cart_delete_all') }}" class="btn-danger"> delete All </a>
                 </td>
             </tr>
         </tfoot>

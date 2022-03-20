@@ -66,6 +66,5 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult()
             ;
-
     }
 }

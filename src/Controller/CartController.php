@@ -97,4 +97,15 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('cart');
     }
+
+    #[Route('/cart/payments', name: 'cart_payments')]
+    public function proceedToPayments(SessionInterface $session, ProductRepository $productRepository)
+    {
+        // TROUVER LES PRODUITS QUI SONT DANS LE PANIER AVEC LEURS ID DANS LA BDD
+        // SOUSTRAIRE AU STOCK DE LA BDD LA QUANTITE ACHETE
+        // DELETE LE CONTENU DU PANIER & REDIRECT VERS HOMES
+        // IZI
+        $cart = $session->get('cart', []);
+
+    }
 }
