@@ -3,8 +3,8 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+    <section class="container d-flex flex-column align-items-center p-4">
     <h1>Register</h1>
-
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.username, {
             label: 'username'
@@ -17,4 +17,5 @@
         }) }}
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+    </section>
 {% endblock %}

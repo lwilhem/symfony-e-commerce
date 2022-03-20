@@ -16,8 +16,11 @@
                     <div class="right-content">
                         <h4>{{ product.name }}</h4>
                         <span class="price">$75.00</span>
+                        {% if product.stock <= 10 %}
+                            <span>Low Stock !</span>
+                        {% endif %}
                         <div class="quote">
-                            <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
+                            <i class="fa fa-quote-left"></i><p>{{ product.description }}</p>
                         </div>
                         <div class="quantity-content">
                             <div class="left-content">
@@ -30,8 +33,8 @@
                             </div>
                         </div>
                         <div class="total">
-                            <h4>Total: $210.00</h4>
-                            <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                            <h4>Total: ${{ product.price }}</h4>
+                            <div class="main-border-button"><a href="{{ path('cart_add', {'id': product.id}) }}">Add To Cart</a></div>
                         </div>
                     </div>
                 </div>
