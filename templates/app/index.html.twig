@@ -3,11 +3,13 @@
 {% block title %}E-Commerce Moyen{% endblock %}
 
 {% block body %}
-    <section>
-        <div class="bg-primary w-100 h-100 p-5">
+    <section class="d-flex flex-wrap align-items-center justify-content-center">
             {% for category in categories %}
-            <a href="{{ path('app_category_shop') }}" class="text-white text-uppercase text-decoration-none" id="{{ category.id }}">{{ category.name }}</a>
+                <div class="bg-primary w-25 h-25 d-flex align-items-center justify-content-center p-2">
+                    <a href="{{ path('app_category_shop', {'id' : category.id}) }}" class="text-white text-uppercase text-decoration-none">
+                        {{ category.name }}
+                    </a>
+                </div>
             {% endfor %}
-        </div>
     </section>
 {% endblock %}

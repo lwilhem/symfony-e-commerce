@@ -12,11 +12,9 @@ class AppController extends AbstractController
     #[Route('/', name: 'app_app')]
     public function index(ProductCategoryRepository $productCategoryRepository ): Response
     {
-        $categories = $productCategoryRepository->findAll();
-
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
-            'categories' => $categories
+            'categories' => $categories = $productCategoryRepository->findAll(),
         ]);
     }
 }

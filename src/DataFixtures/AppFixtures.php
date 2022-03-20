@@ -26,7 +26,7 @@ class AppFixtures extends Fixture
         {
             $user = new User();
             $user->setEmail('test' . $i . '@gmail.com');
-            $user->setUsername('User #' . $i);
+            $user->setUsername('User#' . $i);
             $user->setRoles([
                 'ROLE_USER',
                 'ROLE_ADMIN',
@@ -47,20 +47,18 @@ class AppFixtures extends Fixture
             $category = new ProductCategory();
             $category->setName($categories);
 
+            for($g = 1; $g <= 20; $g++)
+            {
+                $product = new Product();
+                $product->setName('Product #' . $g);
+                $product->setDescription('This is a Description for Product #' .$g);
+                $product->setPrice(rand(3000, 4000));
+                $product->setStock(random_int(20, 300));
+                $product->setCategory($category);
+
+                $manager->persist($product);
+            }
             $manager->persist($category);
-        }
-
-        $manager->flush();
-
-        for($i = 1; $i <= 200; $i++)
-        {
-            $product = new Product();
-            $product->setName('Product #' . $i);
-            $product->setDescription('This is a Description for Product #' .$i);
-            $product->setPrice(rand(3000, 4000));
-            $product->setStock(random_int(20, 300));
-
-            $manager->persist($product);
         }
 
         $manager->flush();
