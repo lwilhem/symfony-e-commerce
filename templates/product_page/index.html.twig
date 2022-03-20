@@ -3,4 +3,10 @@
 {% block title %}Hello ProductPageController!{% endblock %}
 
 {% block body %}
+    <section class="container-fluid d-flex">
+        <div class="wrapper">
+            <img src="{{ asset(picture) }}" alt="bof">
+            <span class="">{{ product.name }}</span>
+        </div>
+    </section>
 {% endblock %}

@@ -12,6 +12,8 @@ class CategoryShopController extends AbstractController
     #[Route('/category/{category_id}', name: 'app_category_list')]
     public function index(ProductRepository $productRepository, $category_id): Response
     {
+        $product = $productRepository->findByCategories($category_id);
+
         return $this->render('category_shop/index.html.twig', [
             'controller_name' => 'CategoryShopController',
             'products' => $productRepository->findByCategories($category_id),
