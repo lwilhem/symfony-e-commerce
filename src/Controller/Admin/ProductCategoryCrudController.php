@@ -20,7 +20,15 @@ class ProductCategoryCrudController extends AbstractCrudController
         return [
             IdField::new('id')->setDisabled()->hideOnForm(),
             TextField::new('name'),
-            ImageField::new('picture')->setUploadDir('./public/uploads/categories')
+            ImageField::new('picture')
+                ->setUploadDir('./public/uploads/categories')
+                ->setBasePath('uploads/categories')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg, image/png'
+                    ]
+                ])
         ];
     }
 }

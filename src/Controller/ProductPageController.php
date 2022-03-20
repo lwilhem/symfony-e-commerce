@@ -20,7 +20,8 @@ class ProductPageController extends AbstractController
 
         return $this->render('product_page/index.html.twig', [
             'controller_name' => 'ProductPageController',
-            'product' => $product
+            'product' => $product,
+            'picture' => 'public/uploads/products/' . $product->getPicture()
         ]);
     }
 }

@@ -24,7 +24,15 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('name'),
             NumberField::new('price'),
             IntegerField::new('stock'),
-            ImageField::new('picture')->setUploadDir('./public/uploads/products'),
+            ImageField::new('picture')
+                ->setUploadDir('./public/uploads/products')
+                ->setBasePath('uploads/product')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg, image/png'
+                    ]
+                ])
         ];
     }
 }
