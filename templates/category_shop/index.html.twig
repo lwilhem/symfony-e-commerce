@@ -5,7 +5,7 @@
 {% block body %}
     <section>
         {% for product in products %}
-            <span class="text-black">{{ product.name }}</span>
+            <a class="text-black">{{ product.name }}</a>
         {% endfor %}
     </section>
 {% endblock %}

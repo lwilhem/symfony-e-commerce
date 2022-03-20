@@ -14,7 +14,7 @@ class AppController extends AbstractController
     {
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
-            'categories' => $categories = $productCategoryRepository->findAll(),
+            'categories' => $productCategoryRepository->findAll(),
         ]);
     }
 }

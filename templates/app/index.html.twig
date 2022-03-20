@@ -6,7 +6,7 @@
     <section class="d-flex flex-wrap align-items-center justify-content-center">
             {% for category in categories %}
                 <div class="bg-primary w-25 h-25 d-flex align-items-center justify-content-center p-2">
-                    <a href="{{ path('app_category_shop', {'id' : category.id}) }}" class="text-white text-uppercase text-decoration-none">
+                    <a href="{{ path('app_category_list', {'category_id' : category.id}) }}" class="text-white text-uppercase text-decoration-none">
                         {{ category.name }}
                     </a>
                 </div>
